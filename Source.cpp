@@ -26,9 +26,15 @@ int main()
 
 	file_in >> buf;
 	size_arr1 = std::stoi(buf);
+
+
+
 	int *arr_1 =new int[size_arr1];
 
-
+	if (size_arr1 < 0)
+	{
+		std::cout << "Размер массива arr_2 меньше 0";
+	}
 
 
 	for (int i = 0; i < size_arr1; i++)
@@ -40,8 +46,11 @@ int main()
 
 	file_in >> buf;
 	size_arr2 = std::stoi(buf);
-	int* arr_2 = new int[6];
 
+	if (size_arr2 < 0) 
+	{ std::cout << "Размер массива arr_2 меньше 0"; }
+
+	 int* arr_2 = new int[size_arr2]; 
 
 
 	for (int i = 0; i < size_arr2; i++)
@@ -102,7 +111,8 @@ int main()
 		break;
 	}
 
-	
+	delete[]arr_1;
+	delete[]arr_2;
 
 	return 0;
 }
