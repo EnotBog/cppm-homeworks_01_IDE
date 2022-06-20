@@ -1,4 +1,4 @@
-#include <cstdio>
+п»ї#include <cstdio>
 #include <iostream>
 #include <string>
 #include <stdlib.h>
@@ -18,7 +18,7 @@ int main()
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	std::string q = "привт";
+	std::string q = "РїСЂРёРІС‚";
 	std::string w = "Hello";
 	std::string e;
 	std::cout << q << " " << w << " " << std::endl;
