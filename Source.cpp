@@ -9,21 +9,100 @@
 
 
 
-
-
 int main()
-{
-
-	//SetConsoleOutputCP(65001);
+{	
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
 
-	std::string q = "привт";
-	std::string w = "Hello";
-	std::string e;
-	std::cout << q << " " << w << " " << std::endl;
-	std::cin >> e;
-	std::cout << e;
+	int size_arr1,size_arr2;
+	std::string buf;
+
+	std::ifstream file_in("E:\\Project\\IDE\\in.txt");
+	std::ofstream file_out("E:\\Project\\IDE\\out.txt");
+
+	if (file_in.is_open()) { std::cout << "File: 'file_in' Open" << "\n"; }
+	else { std::cerr << "File: 'file_in' Not open" << "\n"; return 1; }
+
+
+	file_in >> buf;
+	size_arr1 = std::stoi(buf);
+	int *arr_1 =new int[size_arr1];
+
+
+
+
+	for (int i = 0; i < size_arr1; i++)
+	{
+		file_in >> arr_1[i];
+	}
+
+
+
+	file_in >> buf;
+	size_arr2 = std::stoi(buf);
+	int* arr_2 = new int[6];
+
+
+
+	for (int i = 0; i < size_arr2; i++)
+	{
+		file_in >> arr_2[i];
+	}
+
+	////////////////////////////////////////////////////////////////////////////////////
+
+	while (true)
+	{
+		int count=0;
+
+		file_out << size_arr2 << "\n";
+
+		for (int y = size_arr2-1; count!=5; y--)////// устанавливаетс значение сколько знаков напечатать с конца массива
+		{
+			file_out << arr_2[y]<<" ";
+			count++;
+		}
+
+		
+
+		for (int i = 0; count<size_arr2; i++)
+		{
+			file_out << arr_2[i] << " ";
+			count++;
+		}
+
+		file_out << "\n";
+
+		break;
+	}
+
+
+	while (true)
+	{
+		int count = 0;
+
+		file_out << size_arr1 << "\n";
+
+		for (int y = size_arr1 - 1; count != 3; y--)////// устанавливаетс значение сколько знаков напечатать с конца массива
+		{
+			file_out << arr_1[y] << " ";
+			count++;
+		}
+
+
+
+		for (int i = 0; count < size_arr1; i++)
+		{
+			file_out << arr_1[i] << " ";
+			count++;
+		}
+
+		file_out << "\n";
+
+		break;
+	}
+
+	
 
 	return 0;
 }
