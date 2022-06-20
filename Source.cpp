@@ -31,9 +31,9 @@ int main()
 
 	int *arr_1 =new int[size_arr1];
 
-	if (size_arr1 < 0)
+	if (size_arr1 <= 0)
 	{
-		std::cout << "Размер массива arr_2 меньше 0";
+		std::cerr << "Размер массива arr_2 меньше 1"; return 1;
 	}
 
 
@@ -47,8 +47,10 @@ int main()
 	file_in >> buf;
 	size_arr2 = std::stoi(buf);
 
-	if (size_arr2 < 0) 
-	{ std::cout << "Размер массива arr_2 меньше 0"; }
+	if (size_arr2 <= 0) 
+	{
+		std::cerr << "Размер массива arr_2 меньше 1"; return 1;
+	}
 
 	 int* arr_2 = new int[size_arr2]; 
 
@@ -62,17 +64,16 @@ int main()
 
 	while (true)
 	{
-		int count=0;
+		int count=0;  ///// счетчик элементов 
 
 		file_out << size_arr2 << "\n";
 
-		for (int y = size_arr2-1; count!=5; y--)////// устанавливаетс значение сколько знаков напечатать с конца массива
+		for (int y = size_arr2-1; count!=1; y--)////// count!=х  х -устанавливаетс значение сколько элементов записать с конца массива
 		{
 			file_out << arr_2[y]<<" ";
 			count++;
 		}
 
-		
 
 		for (int i = 0; count<size_arr2; i++)
 		{
@@ -92,7 +93,8 @@ int main()
 
 		file_out << size_arr1 << "\n";
 
-		for (int y = size_arr1 - 1; count != 3; y--)////// устанавливаетс значение сколько знаков напечатать с конца массива
+
+		for (int y = 1; count != size_arr1-1; y++)////// count!=х  х-count устанавливаетс значение с сколько записать элементов от значения
 		{
 			file_out << arr_1[y] << " ";
 			count++;
